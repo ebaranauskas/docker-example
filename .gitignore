@@ -1,0 +1,6 @@
+vendor
+.idea
+docker/logs/nginx/*
+!docker/logs/nginx/.gitkeep
+docker/database/data/*
+!docker/database/data/.gitkeep
