@@ -1,5 +1,5 @@
 # docker/docker-compose.yml
-version: '3'
+version: '3.4'
 
 services:
   database:
@@ -15,6 +15,7 @@ services:
   php-fpm:
     build:
       context: ./docker/php-fpm
+      target: php_base
     depends_on:
       - database
     volumes:
@@ -22,9 +23,11 @@ services:
 
   php-fpm-with-xdebug:
     build:
-      context: ./docker/php-fpm-with-xdebug
+      context: ./docker/php-fpm
+      target: php_test
     depends_on:
       - database
+      - php-fpm
     volumes:
       - .:/var/www
 
